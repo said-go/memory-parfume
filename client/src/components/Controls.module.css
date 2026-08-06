@@ -5,9 +5,10 @@
   gap: 10px;
   min-height: 48px;
   padding: 0 14px;
-  border: 1px solid rgba(181,151,103,.22);
+  border: 1px solid rgba(158,128,83,.2);
   border-radius: 8px;
-  background: rgba(255,255,255,.72);
+  background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,250,243,.64));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.86);
 }
 
 .search input, .selectLabel select {
@@ -21,6 +22,13 @@
 }
 
 .panel {
+  padding: 16px;
+  border: 1px solid rgba(158,128,83,.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.78), rgba(255,250,242,.56)),
+    radial-gradient(ellipse at 20% 0, rgba(234,219,194,.42), transparent 44%);
+  box-shadow: 0 16px 36px rgba(57,48,37,.055), inset 0 1px 0 rgba(255,255,255,.78);
   display: grid;
   gap: 12px;
   align-content: start;
@@ -36,7 +44,7 @@
 .selectLabel select {
   min-height: 44px;
   padding: 0 12px;
-  border: 1px solid rgba(181,151,103,.2);
+  border: 1px solid rgba(158,128,83,.18);
   border-radius: 8px;
   background: rgba(255,255,255,.72);
 }
@@ -47,9 +55,9 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(181,151,103,.25);
+  border: 1px solid rgba(158,128,83,.25);
   border-radius: 8px;
-  background: #fff;
+  background: rgba(255,255,255,.82);
 }
 
 .drawer {
@@ -58,7 +66,9 @@
   z-index: 60;
   width: min(360px, 92vw);
   padding: 70px 18px 22px;
-  background: rgba(255,252,247,.98);
+  background:
+    radial-gradient(ellipse at 20% 0, rgba(234,219,194,.42), transparent 34%),
+    rgba(255,252,247,.98);
   transform: translateX(105%);
   transition: transform .25s ease;
   box-shadow: -24px 0 50px rgba(65,55,42,.12);
@@ -106,9 +116,9 @@
   align-items: center;
   gap: 5px;
   min-height: 34px;
-  border: 1px solid rgba(181,151,103,.25);
+  border: 1px solid rgba(158,128,83,.22);
   border-radius: 999px;
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.78);
   padding: 0 11px;
 }
 
@@ -125,7 +135,8 @@
   text-align: center;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255,255,255,.55);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.78), rgba(255,250,243,.58));
 }
 
 .empty h2, .empty p {

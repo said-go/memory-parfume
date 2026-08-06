@@ -5,8 +5,33 @@
   min-height: 250px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 35% 22%, rgba(255,255,255,.95), transparent 24%),
-    linear-gradient(135deg, var(--tone-a), #fff 42%, var(--tone-b));
+    radial-gradient(ellipse at 34% 18%, rgba(255,255,255,.96), transparent 24%),
+    radial-gradient(ellipse at 68% 72%, color-mix(in srgb, var(--tone-b) 35%, transparent), transparent 32%),
+    linear-gradient(135deg, color-mix(in srgb, var(--tone-a) 80%, #fff), #fff 44%, color-mix(in srgb, var(--tone-b) 72%, #fff));
+}
+
+.visual::before,
+.visual::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.visual::before {
+  width: 72%;
+  height: 28%;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%;
+  transform: translateY(40%) rotate(-16deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent);
+}
+
+.visual::after {
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0 33%, rgba(255,255,255,.62) 43%, transparent 53%),
+    repeating-linear-gradient(100deg, rgba(255,255,255,.22) 0 1px, transparent 1px 34px);
+  opacity: .52;
 }
 
 .compact {
@@ -30,10 +55,10 @@
   top: 22%;
   width: 42px;
   height: 24px;
-  border: 1px solid rgba(85, 73, 54, .2);
+  border: 1px solid rgba(85, 73, 54, .16);
   border-radius: 5px 5px 3px 3px;
-  background: linear-gradient(90deg, #f9f7f2, var(--tone-b), #fff);
-  box-shadow: inset 0 0 18px rgba(255,255,255,.8);
+  background: linear-gradient(90deg, #fff, color-mix(in srgb, var(--tone-b) 68%, #fff), #fff);
+  box-shadow: inset 0 0 18px rgba(255,255,255,.86), 0 6px 12px rgba(65,55,42,.06);
 }
 
 .neck {
@@ -48,12 +73,12 @@
   top: 42%;
   width: 92px;
   height: 104px;
-  border: 1px solid rgba(67, 57, 45, .16);
-  border-radius: 20px 20px 12px 12px;
+  border: 1px solid rgba(67, 57, 45, .13);
+  border-radius: 22px 22px 13px 13px;
   background:
-    linear-gradient(105deg, rgba(255,255,255,.78), rgba(255,255,255,.24) 48%, rgba(255,255,255,.7)),
+    linear-gradient(106deg, rgba(255,255,255,.86), rgba(255,255,255,.22) 45%, rgba(255,255,255,.74) 62%, rgba(255,255,255,.3)),
     linear-gradient(160deg, color-mix(in srgb, var(--tone-b) 55%, #fff), var(--tone-a));
-  box-shadow: 0 18px 36px rgba(85, 73, 54, .12), inset 0 0 26px rgba(255,255,255,.6);
+  box-shadow: 0 18px 34px rgba(85, 73, 54, .11), inset 0 0 28px rgba(255,255,255,.66);
 }
 
 .bottle span {

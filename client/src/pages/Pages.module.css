@@ -1,9 +1,41 @@
 .hero {
+  position: relative;
   min-height: calc(100vh - 78px);
   display: grid;
   grid-template-columns: 1fr .8fr;
   align-items: center;
   gap: clamp(22px, 5vw, 70px);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 8% 42% auto -5%;
+  height: 260px;
+  pointer-events: none;
+  border: 1px solid rgba(158,128,83,.12);
+  border-radius: 50%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.38), transparent);
+  transform: rotate(-13deg);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 6%;
+  bottom: 11%;
+  width: 210px;
+  height: 70px;
+  pointer-events: none;
+  border-bottom: 1px solid rgba(146,112,68,.18);
+  border-radius: 50%;
+  transform: rotate(-10deg);
+}
+
+.heroText,
+.heroVisual {
+  position: relative;
+  z-index: 1;
 }
 
 .heroText span, .productInfo > span {
@@ -19,6 +51,7 @@
   font-size: clamp(2.45rem, 6vw, 5.9rem);
   font-weight: 500;
   line-height: .96;
+  text-wrap: balance;
 }
 
 .heroText p, .lead {
@@ -37,9 +70,10 @@
 
 .heroVisual {
   overflow: hidden;
-  border: 1px solid rgba(181,151,103,.18);
+  border: 1px solid rgba(158,128,83,.16);
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  background: rgba(255,255,255,.35);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.72);
 }
 
 .chips {
@@ -49,12 +83,25 @@
 }
 
 .chips a, .three a, .benefits article, .steps article {
-  border: 1px solid rgba(181,151,103,.2);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(158,128,83,.18);
   border-radius: 8px;
-  background: rgba(255,255,255,.6);
+  background:
+    linear-gradient(150deg, rgba(255,255,255,.76), rgba(255,250,243,.56));
   color: var(--text);
   text-decoration: none;
-  box-shadow: 0 14px 36px rgba(65,55,42,.05);
+  box-shadow: 0 14px 32px rgba(57,48,37,.052), inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.chips a::after, .three a::after, .benefits article::after, .steps article::after {
+  content: '';
+  position: absolute;
+  inset: auto -18% -35% 28%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(234,219,194,.42), transparent 62%);
+  pointer-events: none;
 }
 
 .chips a {
@@ -100,9 +147,12 @@
   display: grid;
   gap: 12px;
   padding: 24px;
-  border: 1px solid rgba(181,151,103,.2);
+  border: 1px solid rgba(158,128,83,.18);
   border-radius: 8px;
-  background: rgba(255,255,255,.58);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.76), rgba(255,250,243,.58)),
+    radial-gradient(ellipse at 80% 0, rgba(234,219,194,.42), transparent 45%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.72);
 }
 
 .glassList p {
@@ -118,12 +168,13 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  border: 1px dashed rgba(181,151,103,.34);
+  border: 1px dashed rgba(158,128,83,.32);
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(181,151,103,.08) 1px, transparent 1px),
-    linear-gradient(rgba(181,151,103,.08) 1px, transparent 1px),
-    rgba(255,255,255,.58);
+    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.66), transparent 35%),
+    linear-gradient(90deg, rgba(158,128,83,.07) 1px, transparent 1px),
+    linear-gradient(rgba(158,128,83,.07) 1px, transparent 1px),
+    rgba(255,255,255,.62);
   background-size: 34px 34px;
   color: var(--muted);
   text-align: center;
@@ -165,8 +216,16 @@
 }
 
 .productInfo {
+  position: relative;
   display: grid;
   gap: 18px;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(158,128,83,.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(150deg, rgba(255,255,255,.76), rgba(255,250,243,.54)),
+    radial-gradient(ellipse at 85% 0, rgba(234,219,194,.42), transparent 38%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
 }
 
 .productInfo h1 {
@@ -190,7 +249,7 @@
   padding: 8px 11px;
   border-radius: 999px;
   background: rgba(255,255,255,.72);
-  border: 1px solid rgba(181,151,103,.2);
+  border: 1px solid rgba(158,128,83,.18);
   font-size: .86rem;
 }
 
@@ -200,9 +259,9 @@
 }
 
 .notes article {
-  border: 1px solid rgba(181,151,103,.2);
+  border: 1px solid rgba(158,128,83,.18);
   border-radius: 8px;
-  background: rgba(255,255,255,.58);
+  background: linear-gradient(150deg, rgba(255,255,255,.76), rgba(255,250,243,.55));
 }
 
 .inlineTitle {
@@ -240,6 +299,8 @@
 @media (max-width: 520px) {
   .hero { min-height: auto; padding-top: 36px; }
   .heroText h1 { font-size: 2.6rem; }
+  .hero::before { inset: 4% 18% auto -34%; height: 190px; }
+  .hero::after { display: none; }
   .chips { gap: 8px; }
   .chips a { min-height: 66px; font-size: 1.05rem; padding: 12px; }
   .three, .benefits, .steps, .notes { gap: 10px; }

@@ -1,10 +1,27 @@
 .footer {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1.2fr .7fr 1.1fr;
   gap: 28px;
-  padding: 46px clamp(16px, 4vw, 56px);
-  border-top: 1px solid rgba(181,151,103,.18);
-  background: rgba(255,252,247,.72);
+  padding: 58px clamp(16px, 4vw, 56px) 42px;
+  border-top: 1px solid rgba(158,128,83,.16);
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(234,219,194,.42), transparent 30%),
+    linear-gradient(180deg, rgba(255,252,247,.62), rgba(248,245,239,.9));
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  left: -8%;
+  top: 16%;
+  width: 380px;
+  height: 100px;
+  border-top: 1px solid rgba(158,128,83,.16);
+  border-radius: 50%;
+  transform: rotate(-10deg);
+  pointer-events: none;
 }
 
 .footer h2 {

@@ -7,16 +7,17 @@
   align-items: center;
   gap: 24px;
   padding: 18px clamp(16px, 4vw, 56px);
-  background: rgba(255, 252, 247, .72);
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, .84), rgba(255, 252, 247, .64));
   border-bottom: 1px solid transparent;
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(14px);
   transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
 .scrolled {
-  background: rgba(255, 252, 247, .92);
-  border-color: rgba(181, 151, 103, .18);
-  box-shadow: 0 14px 38px rgba(65, 55, 42, .06);
+  background: rgba(255, 252, 247, .94);
+  border-color: rgba(158, 128, 83, .16);
+  box-shadow: 0 12px 30px rgba(57, 48, 37, .055);
 }
 
 .brand {
@@ -49,10 +50,21 @@
   color: var(--muted);
   font-size: .94rem;
   text-decoration: none;
+  position: relative;
 }
 
 .nav a[class*="active"] {
   color: var(--text);
+}
+
+.nav a[class*="active"]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(146,112,68,.55), transparent);
 }
 
 .actions {
@@ -63,9 +75,9 @@
 
 .actions button, .contact, .mobilePanel a:last-child {
   min-height: 42px;
-  border: 1px solid rgba(181, 151, 103, .28);
+  border: 1px solid rgba(158, 128, 83, .24);
   border-radius: 999px;
-  background: rgba(255,255,255,.72);
+  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,250,243,.62));
   color: var(--text);
   display: inline-flex;
   align-items: center;
@@ -92,8 +104,8 @@
   display: grid;
   place-items: start center;
   padding: 88px 16px 0;
-  background: rgba(250, 247, 240, .72);
-  backdrop-filter: blur(12px);
+  background: rgba(250, 247, 240, .76);
+  backdrop-filter: blur(10px);
 }
 
 .searchLayer form {
@@ -103,9 +115,9 @@
   align-items: center;
   gap: 10px;
   padding: 13px 14px;
-  border: 1px solid rgba(181, 151, 103, .22);
+  border: 1px solid rgba(158, 128, 83, .2);
   border-radius: 999px;
-  background: #fff;
+  background: rgba(255,255,255,.9);
   box-shadow: var(--shadow);
 }
 
