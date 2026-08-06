@@ -4,6 +4,8 @@ import BoutiqueInfo from '../components/BoutiqueInfo.jsx';
 import ContactButtons from '../components/ContactButtons.jsx';
 import PerfumeVisual from '../components/PerfumeVisual.jsx';
 import { boutique } from '../data/boutique.js';
+import { products } from '../data/products.js';
+import { getProductPhotos } from '../data/productPhotos.js';
 import { setSeo } from '../utils.js';
 import styles from './Pages.module.css';
 
@@ -22,7 +24,7 @@ export default function About() {
           <p className={styles.lead}>Владелец может заменить этот текст на реальную историю бутика, команду, документы об оригинальности и фотографии интерьера.</p>
           <ContactButtons />
         </div>
-        <PerfumeVisual palette={{ a: '#f7f1ea', b: '#cfb78f', c: '#6f6254' }} label="Интерьер парфюмерного бутика" />
+        <PerfumeVisual palette={{ a: '#f7f1ea', b: '#cfb78f', c: '#6f6254' }} imageSrc={getProductPhotos(products[7])[0]} label="Флакон парфюма в бутике" />
       </div>
       <div className={styles.benefits}>
         {['Оригинальная парфюмерия', 'Личная консультация', 'Знакомство с ароматами', 'Бережная упаковка', 'Уютный адрес', 'Связь в мессенджерах'].map((item) => <article key={item}><h3>{item}</h3><p>Демонстрационный блок для быстрой замены на реальные детали бутика.</p></article>)}

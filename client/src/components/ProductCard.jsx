@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import { dictionaries } from '../data/products.js';
+import { getProductPhotos } from '../data/productPhotos.js';
 import { money, productPath } from '../utils.js';
 import PerfumeVisual from './PerfumeVisual.jsx';
 import styles from './ProductCard.module.css';
 
 export default function ProductCard({ product }) {
+  const [imageSrc] = getProductPhotos(product);
+
   return (
     <article className={styles.card}>
       <Link to={productPath(product)} className={styles.image}>
-        <PerfumeVisual palette={product.images} label={`${product.brand} ${product.name}`} compact />
+        <PerfumeVisual palette={product.images} imageSrc={imageSrc} label={`${product.brand} ${product.name}`} compact />
         {product.isNew && <span className={styles.badge}><Sparkles size={13} />New</span>}
       </Link>
       <div className={styles.body}>

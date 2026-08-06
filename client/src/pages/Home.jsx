@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BadgeCheck, Gift, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { products, dictionaries } from '../data/products.js';
 import { boutique } from '../data/boutique.js';
+import { getProductPhotos } from '../data/productPhotos.js';
 import { productPath, setSeo } from '../utils.js';
 import SectionTitle from '../components/SectionTitle.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
@@ -30,14 +31,14 @@ export default function Home() {
         <div className={styles.heroText}>
           <span>Премиальный парфюмерный бутик</span>
           <h1>Ароматы, которые остаются личной памятью</h1>
-          <p>{boutique.tagline}. Помогаем выбрать флакон или небольшой объем для знакомства с композицией.</p>
+          <p>{boutique.tagline}. Помогаем выбрать флакон или небольшой объем для знакомства с композицией. Доступны распив и разлив.</p>
           <div className={styles.cta}>
             <Link className="btn primary" to="/catalog">Смотреть каталог <ArrowRight size={18} /></Link>
             <Link className="btn" to="/catalog?family=fresh">Подобрать аромат <Sparkles size={18} /></Link>
           </div>
         </div>
         <div className={styles.heroVisual}>
-          <PerfumeVisual palette={{ a: '#faf2e8', b: '#d8bd89', c: '#6a5c4b' }} label="Флакон парфюма Maison Memory" />
+          <PerfumeVisual palette={{ a: '#faf2e8', b: '#d8bd89', c: '#6a5c4b' }} imageSrc={getProductPhotos(products[2])[0]} label="Флакон парфюма Maison Memory" />
         </div>
       </section>
 

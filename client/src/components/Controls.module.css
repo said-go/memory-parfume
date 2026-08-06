@@ -36,7 +36,7 @@
 
 .selectLabel {
   display: grid;
-  gap: 6px;
+  gap: 10px;
   color: var(--muted);
   font-size: .86rem;
 }
