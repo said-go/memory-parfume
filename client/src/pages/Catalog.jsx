@@ -17,7 +17,7 @@ const emptyFilters = { q: '', gender: '', family: '', brand: '', season: '', vol
 export default function Catalog() {
   const [params, setParams] = useSearchParams();
   const [drawer, setDrawer] = useState(false);
-  const [sort, setSort] = useState(params.get('sort') || 'popular');
+  const sort = params.get('sort') || 'popular';
   const filters = Object.keys(emptyFilters).reduce((acc, key) => ({ ...acc, [key]: params.get(key) || '' }), {});
 
   useEffect(() => setSeo({
@@ -34,7 +34,6 @@ export default function Catalog() {
 
   const remove = (key) => update({ ...filters, [key]: '' });
   const reset = () => {
-    setSort('popular');
     setParams({}, { replace: true });
   };
 
@@ -53,7 +52,6 @@ export default function Catalog() {
       <div className={styles.toolbar}>
         <SearchBar value={filters.q} onChange={(q) => update({ ...filters, q })} />
         <SortSelect value={sort} onChange={(value) => {
-          setSort(value);
           const next = new URLSearchParams(params);
           value === 'popular' ? next.delete('sort') : next.set('sort', value);
           setParams(next, { replace: true });

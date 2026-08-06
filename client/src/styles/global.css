@@ -33,6 +33,24 @@ body {
   background-attachment: fixed;
 }
 
+.skipLink {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  transform: translateY(-140%);
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--text);
+  color: #fff;
+  text-decoration: none;
+  transition: transform .18s ease;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
 button, input, select, textarea {
   font: inherit;
 }
@@ -101,7 +119,7 @@ main {
   transform: translateY(0);
 }
 
-.lock-scroll {
+body.lock-scroll {
   overflow: hidden;
 }
 

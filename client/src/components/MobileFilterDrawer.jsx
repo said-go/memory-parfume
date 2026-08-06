@@ -17,11 +17,16 @@ export default function MobileFilterDrawer({ open, setOpen, filters, onChange })
   return (
     <>
       <button className={styles.filterButton} onClick={() => setOpen(true)}><SlidersHorizontal size={18} />Фильтры</button>
-      <div className={`${styles.drawer} ${open ? styles.drawerOpen : ''}`} aria-hidden={!open}>
-        <button className={styles.drawerClose} aria-label="Закрыть фильтры" onClick={() => setOpen(false)}><X size={21} /></button>
-        <h2>Фильтры</h2>
-        <FilterPanel filters={filters} onChange={onChange} />
-      </div>
+      {open && (
+        <>
+          <button className={styles.backdrop} aria-label="Закрыть фильтры" onClick={() => setOpen(false)} />
+          <div className={`${styles.drawer} ${styles.drawerOpen}`} role="dialog" aria-modal="true" aria-label="Фильтры каталога">
+            <button className={styles.drawerClose} aria-label="Закрыть фильтры" onClick={() => setOpen(false)}><X size={21} /></button>
+            <h2>Фильтры</h2>
+            <FilterPanel filters={filters} onChange={onChange} />
+          </div>
+        </>
+      )}
     </>
   );
 }

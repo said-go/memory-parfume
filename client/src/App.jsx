@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
+      <main id="content" tabIndex="-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />

@@ -131,6 +131,14 @@
   box-shadow: -24px 0 50px rgba(65,55,42,.12);
 }
 
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  border: 0;
+  background: rgba(44, 42, 40, .12);
+}
+
 .mobilePanel.open {
   transform: translateX(0);
 }

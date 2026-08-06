@@ -63,11 +63,16 @@ export default function Header() {
           </form>
         </div>
       )}
-      <div className={`${styles.mobilePanel} ${menuOpen ? styles.open : ''}`} aria-hidden={!menuOpen}>
-        <button className={styles.close} aria-label="Закрыть меню" onClick={() => setMenuOpen(false)}><X size={22} /></button>
-        {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)}>{item.label}</NavLink>)}
-        <a href={boutique.whatsapp} target="_blank" rel="noreferrer"><Send size={18} />Связаться с менеджером</a>
-      </div>
+      {menuOpen && (
+        <>
+          <button className={styles.backdrop} aria-label="Закрыть меню" onClick={() => setMenuOpen(false)} />
+          <div className={`${styles.mobilePanel} ${styles.open}`} role="dialog" aria-modal="true" aria-label="Мобильное меню">
+            <button className={styles.close} aria-label="Закрыть меню" onClick={() => setMenuOpen(false)}><X size={22} /></button>
+            {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)}>{item.label}</NavLink>)}
+            <a href={boutique.whatsapp} target="_blank" rel="noreferrer"><Send size={18} />Связаться с менеджером</a>
+          </div>
+        </>
+      )}
     </header>
   );
 }
