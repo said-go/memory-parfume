@@ -1,0 +1,19 @@
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.crumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.crumbs a::after {
+  content: '/';
+  margin-left: 8px;
+  color: rgba(90,83,75,.45);
+}

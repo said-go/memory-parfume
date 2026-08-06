@@ -1,0 +1,28 @@
+.wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.options button {
+  min-width: 78px;
+  min-height: 42px;
+  border: 1px solid rgba(181,151,103,.3);
+  border-radius: 999px;
+  background: rgba(255,255,255,.74);
+  color: var(--text);
+}
+
+.options .active {
+  background: var(--text);
+  color: #fff;
+}
+
+.wrap strong {
+  font-size: 1.35rem;
+}
