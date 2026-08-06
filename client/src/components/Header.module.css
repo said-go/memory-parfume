@@ -177,3 +177,26 @@
   .menuBtn { display: inline-flex !important; }
   .header { grid-template-columns: 1fr auto; }
 }
+
+@media (max-width: 520px) {
+  .mobilePanel {
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 78px 20px 24px;
+    transform: translateX(100%);
+    box-shadow: none;
+  }
+
+  .mobilePanel.open {
+    transform: translateX(0);
+  }
+
+  .mobilePanel a {
+    padding: 16px 2px;
+  }
+
+  .backdrop {
+    background: rgba(44, 42, 40, .08);
+  }
+}

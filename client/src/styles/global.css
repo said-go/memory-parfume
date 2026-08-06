@@ -19,6 +19,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +36,11 @@ body {
     radial-gradient(ellipse at 68% 72%, rgba(226, 207, 176, .35), transparent 30%),
     linear-gradient(120deg, #fff 0%, var(--milk) 44%, #f3f5f2 100%);
   background-attachment: fixed;
+}
+
+#root {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body::before {

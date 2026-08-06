@@ -150,3 +150,22 @@
 @media (max-width: 900px) {
   .filterButton { display: inline-flex; }
 }
+
+@media (max-width: 520px) {
+  .drawer {
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 72px 16px 24px;
+    transform: translateX(100%);
+    box-shadow: none;
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    background: rgba(44, 42, 40, .08);
+  }
+}

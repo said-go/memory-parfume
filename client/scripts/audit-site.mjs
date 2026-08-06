@@ -2,7 +2,7 @@ import { chromium } from 'playwright-core';
 
 const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const baseUrl = process.env.AUDIT_URL || 'http://127.0.0.1:5173';
-const widths = [320, 375, 768, 1024, 1440];
+const widths = [320, 375, 465, 768, 1024, 1440];
 const failures = [];
 
 const browser = await chromium.launch({ executablePath: edgePath, headless: true });
@@ -48,6 +48,40 @@ for (const width of widths) {
   if (width <= 375 && metrics.rects.length >= 2) {
     await check(metrics.rects[0].top === metrics.rects[1].top, `На ${width}px первые две карточки не стоят в одной строке`);
     await check(metrics.rects[0].right <= metrics.rects[1].left || metrics.rects[1].right <= metrics.rects[0].left, `На ${width}px карточки пересекаются`);
+  }
+
+  if (width <= 520) {
+    await page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
+    await page.getByLabel('Открыть меню').click();
+    const menuMetrics = await page.evaluate(() => {
+      const panel = document.querySelector('[aria-label="Мобильное меню"]');
+      const rect = panel?.getBoundingClientRect();
+      return {
+        innerWidth: window.innerWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        left: Math.round(rect?.left ?? -1),
+        right: Math.round(rect?.right ?? -1)
+      };
+    });
+    await check(menuMetrics.scrollWidth <= menuMetrics.innerWidth + 1, `Мобильное меню создает горизонтальную прокрутку на ${width}px`);
+    await check(menuMetrics.left >= 0 && menuMetrics.right <= menuMetrics.innerWidth + 1, `Мобильное меню выходит за экран на ${width}px`);
+
+    await page.keyboard.press('Escape');
+    await page.goto(`${baseUrl}/catalog`, { waitUntil: 'networkidle' });
+    await page.getByRole('button', { name: 'Фильтры' }).click();
+    const drawerMetrics = await page.evaluate(() => {
+      const panel = document.querySelector('[aria-label="Фильтры каталога"]');
+      const rect = panel?.getBoundingClientRect();
+      return {
+        innerWidth: window.innerWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        left: Math.round(rect?.left ?? -1),
+        right: Math.round(rect?.right ?? -1)
+      };
+    });
+    await check(drawerMetrics.scrollWidth <= drawerMetrics.innerWidth + 1, `Мобильные фильтры создают горизонтальную прокрутку на ${width}px`);
+    await check(drawerMetrics.left >= 0 && drawerMetrics.right <= drawerMetrics.innerWidth + 1, `Мобильные фильтры выходят за экран на ${width}px`);
+    await page.keyboard.press('Escape');
   }
 
   const firstCard = page.locator('article a[href*="/product/"]').first();
