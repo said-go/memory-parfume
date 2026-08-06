@@ -3,7 +3,7 @@ import { ArrowRight, BadgeCheck, Gift, MessageCircle, ShieldCheck, Sparkles } fr
 import { products, dictionaries } from '../data/products.js';
 import { boutique } from '../data/boutique.js';
 import { getProductPhotos } from '../data/productPhotos.js';
-import { productPath, setSeo } from '../utils.js';
+import { setSeo } from '../utils.js';
 import SectionTitle from '../components/SectionTitle.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
 import PerfumeVisual from '../components/PerfumeVisual.jsx';
@@ -21,8 +21,8 @@ const genders = [
 
 export default function Home() {
   useEffect(() => setSeo({
-    title: 'Maison Memory | Премиальный каталог парфюмерии',
-    description: 'Светлый каталог премиального парфюмерного бутика с подбором ароматов, распивом и консультацией менеджера.'
+    title: `${boutique.name} | Премиальный каталог парфюмерии`,
+    description: `Светлый каталог премиального парфюмерного бутика ${boutique.name} с подбором ароматов, распивом и консультацией менеджера.`
   }), []);
 
   return (
@@ -38,7 +38,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.heroVisual}>
-          <PerfumeVisual palette={{ a: '#faf2e8', b: '#d8bd89', c: '#6a5c4b' }} imageSrc={getProductPhotos(products[2])[0]} label="Флакон парфюма Maison Memory" />
+          <PerfumeVisual palette={{ a: '#faf2e8', b: '#d8bd89', c: '#6a5c4b' }} imageSrc={getProductPhotos(products[2])[0]} label={`Флакон парфюма ${boutique.name}`} />
         </div>
       </section>
 
@@ -92,7 +92,7 @@ export default function Home() {
         <SectionTitle kicker="Контакты" title="Адрес и связь" />
         <div className={styles.split}>
           <BoutiqueInfo />
-          <div className={styles.map}>Карта: {boutique.mapCoords}</div>
+          <div className={styles.map}>Карта: {boutique.address}. Поиск на карте: {boutique.mapQuery}</div>
         </div>
       </section>
     </>

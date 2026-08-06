@@ -18,6 +18,11 @@
   line-height: 1.55;
 }
 
+.info a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .compare {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

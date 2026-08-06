@@ -16,4 +16,39 @@
   background: rgba(255,255,255,.72);
   color: var(--text);
   text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+}
+
+.buttons a:hover {
+  transform: translateY(-2px);
+}
+
+.buttons a:active {
+  transform: translateY(0) scale(.98);
+}
+
+.whatsapp svg {
+  color: #25D366;
+  fill: rgba(37, 211, 102, .12);
+}
+
+.whatsapp:hover,
+.whatsapp:focus-visible {
+  border-color: rgba(37, 211, 102, .38);
+  background: rgba(37, 211, 102, .08);
+}
+
+.instagram svg {
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #FEDA75, #FA7E1E 28%, #D62976 52%, #962FBF 74%, #4F5BD5);
+}
+
+.instagram:hover,
+.instagram:focus-visible {
+  border-color: rgba(214, 41, 118, .28);
+  background: rgba(255,255,255,.88);
 }

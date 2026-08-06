@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { dictionaries, products } from '../data/products.js';
+import { boutique } from '../data/boutique.js';
 import { findProduct, money, productPath, setSeo } from '../utils.js';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import ContactButtons from '../components/ContactButtons.jsx';
@@ -12,12 +13,17 @@ import styles from './Pages.module.css';
 export default function Product() {
   const { id } = useParams();
   const product = findProduct(id);
+  const [volume, setVolume] = useState('');
 
   useEffect(() => {
     if (product) setSeo({
-      title: `${product.brand} ${product.name} | Maison Memory`,
+      title: `${product.brand} ${product.name} | ${boutique.name}`,
       description: product.description
     });
+  }, [product]);
+
+  useEffect(() => {
+    if (product) setVolume(product.volumes[0]);
   }, [product]);
 
   if (!product) return <section className="section pageTop"><h1>Аромат не найден</h1><Link className="btn primary" to="/catalog">Вернуться в каталог</Link></section>;
@@ -38,8 +44,8 @@ export default function Product() {
             <b>{dictionaries.family[product.family]}</b>
             <b>{dictionaries.availability[product.availability]}</b>
           </div>
-          <VolumeSelector product={product} />
-          <ContactButtons productName={`${product.brand} ${product.name}`} />
+          <VolumeSelector product={product} volume={volume || product.volumes[0]} onChange={setVolume} />
+          <ContactButtons productName={`${product.brand} ${product.name}`} volume={volume || product.volumes[0]} />
         </div>
       </div>
       <div className={styles.notes}>

@@ -9,8 +9,8 @@ import styles from './Pages.module.css';
 
 export default function Contacts() {
   useEffect(() => setSeo({
-    title: 'Контакты | Maison Memory',
-    description: 'Адрес, телефон, мессенджеры, почта и форма обращения бутика Maison Memory.'
+    title: `Контакты | ${boutique.name}`,
+    description: `Адрес, телефон, мессенджеры, почта и форма обращения бутика ${boutique.name}.`
   }), []);
 
   return (
@@ -23,7 +23,7 @@ export default function Contacts() {
         </div>
         <ContactForm />
       </div>
-      <div className={styles.map}>Интерактивная карта: {boutique.address}. Координаты для замены: {boutique.mapCoords}</div>
+      <div className={styles.map}>Интерактивная карта: {boutique.address}. Поиск на карте: {boutique.mapQuery}</div>
     </section>
   );
 }

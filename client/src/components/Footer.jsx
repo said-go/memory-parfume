@@ -16,7 +16,7 @@ export default function Footer() {
       <div>
         <p>{boutique.address}</p>
         <p>{boutique.workHours}</p>
-        <p>{boutique.phone}</p>
+        <p><a href={`tel:${boutique.phoneLink}`}>{boutique.phoneDisplay}</a></p>
         <ContactButtons />
       </div>
       <small>© 2026 {boutique.name}. Юридическая информация и политика конфиденциальности: демонстрационные разделы.</small>

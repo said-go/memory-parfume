@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, Search, Send, X } from 'lucide-react';
+import { Menu, MessageCircle, Search, X } from 'lucide-react';
 import { boutique, navItems } from '../data/boutique.js';
 import styles from './Header.module.css';
 
@@ -43,15 +43,15 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <Link className={styles.brand} to="/" onClick={() => setMenuOpen(false)}>
-        <span>Maison</span>
-        <strong>{boutique.name.replace('Maison ', '')}</strong>
+        <span>Бутик</span>
+        <strong>{boutique.name}</strong>
       </Link>
       <nav className={styles.nav} aria-label="Основная навигация">
         {navItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}
       </nav>
       <div className={styles.actions}>
         <button aria-label="Открыть поиск" title="Поиск" onClick={() => setSearchOpen(true)}><Search size={19} /></button>
-        <a className={styles.contact} href={boutique.whatsapp} target="_blank" rel="noreferrer"><Send size={18} />Менеджер</a>
+        <a className={`${styles.contact} ${styles.whatsappLink}`} href={boutique.whatsapp} target="_blank" rel="noreferrer" aria-label="Написать в WhatsApp"><MessageCircle size={18} />Менеджер</a>
         <button className={styles.menuBtn} aria-label="Открыть меню" title="Меню" onClick={() => setMenuOpen(true)}><Menu size={21} /></button>
       </div>
       {searchOpen && (
@@ -69,7 +69,7 @@ export default function Header() {
           <div className={`${styles.mobilePanel} ${styles.open}`} role="dialog" aria-modal="true" aria-label="Мобильное меню">
             <button className={styles.close} aria-label="Закрыть меню" onClick={() => setMenuOpen(false)}><X size={22} /></button>
             {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)}>{item.label}</NavLink>)}
-            <a href={boutique.whatsapp} target="_blank" rel="noreferrer"><Send size={18} />Связаться с менеджером</a>
+            <a className={styles.whatsappLink} href={boutique.whatsapp} target="_blank" rel="noreferrer" aria-label="Написать в WhatsApp"><MessageCircle size={18} />Связаться с менеджером</a>
           </div>
         </>
       )}

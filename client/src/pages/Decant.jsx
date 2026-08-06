@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import DecantExplanation from '../components/DecantExplanation.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import { setSeo } from '../utils.js';
+import { boutique } from '../data/boutique.js';
 import styles from './Pages.module.css';
 
 export default function Decant() {
   useEffect(() => setSeo({
-    title: 'Распив и разлив | Maison Memory',
+    title: `Распив и разлив | ${boutique.name}`,
     description: 'Чем распив оригинальной парфюмерии отличается от разлива и как выбрать небольшой объем аромата.'
   }), []);
 

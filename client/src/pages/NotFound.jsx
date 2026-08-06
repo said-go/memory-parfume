@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { setSeo } from '../utils.js';
 import { useEffect } from 'react';
+import { boutique } from '../data/boutique.js';
 import styles from './Pages.module.css';
 
 export default function NotFound() {
   useEffect(() => setSeo({
-    title: 'Страница не найдена | Maison Memory',
-    description: '404 страница премиального парфюмерного бутика Maison Memory.'
+    title: `Страница не найдена | ${boutique.name}`,
+    description: `404 страница премиального парфюмерного бутика ${boutique.name}.`
   }), []);
   return (
     <section className={`${styles.notFound} section pageTop`}>

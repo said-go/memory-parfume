@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { products } from '../data/products.js';
+import { boutique } from '../data/boutique.js';
 import { filterProducts, setSeo, sortProducts } from '../utils.js';
 import ActiveFilters from '../components/ActiveFilters.jsx';
 import EmptyState from '../components/EmptyState.jsx';
@@ -21,7 +22,7 @@ export default function Catalog() {
   const filters = Object.keys(emptyFilters).reduce((acc, key) => ({ ...acc, [key]: params.get(key) || '' }), {});
 
   useEffect(() => setSeo({
-    title: 'Каталог ароматов | Maison Memory',
+    title: `Каталог ароматов | ${boutique.name}`,
     description: 'Поиск, фильтры и сортировка премиальной парфюмерии по полу, бренду, нотам, семейству, объему, цене и наличию.'
   }), []);
 

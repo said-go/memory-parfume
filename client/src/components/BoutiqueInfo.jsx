@@ -8,7 +8,7 @@ export default function BoutiqueInfo() {
     <div className={styles.info}>
       <p><MapPin size={18} />{boutique.address}</p>
       <p><Clock size={18} />{boutique.workHours}</p>
-      <p><Phone size={18} />{boutique.phone}</p>
+      <p><Phone size={18} /><a href={`tel:${boutique.phoneLink}`}>{boutique.phoneDisplay}</a></p>
       <p><Mail size={18} />{boutique.email}</p>
       <ContactButtons />
     </div>

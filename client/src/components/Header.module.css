@@ -93,6 +93,21 @@
   padding: 0;
 }
 
+.whatsappLink svg {
+  color: #25D366;
+  fill: rgba(37, 211, 102, .12);
+}
+
+.whatsappLink:hover,
+.whatsappLink:focus-visible {
+  border-color: rgba(37, 211, 102, .36);
+  background: rgba(37, 211, 102, .08);
+}
+
+.whatsappLink:active {
+  transform: scale(.98);
+}
+
 .menuBtn {
   display: none !important;
 }
