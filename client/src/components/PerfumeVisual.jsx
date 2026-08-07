@@ -1,8 +1,14 @@
 import styles from './PerfumeVisual.module.css';
 
 export default function PerfumeVisual({ palette, label, compact = false, imageSrc }) {
+  const visualClass = [
+    styles.visual,
+    compact ? styles.compact : '',
+    imageSrc ? styles.hasPhoto : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <div className={`${styles.visual} ${compact ? styles.compact : ''}`} style={{
+    <div className={visualClass} style={{
       '--tone-a': palette?.a,
       '--tone-b': palette?.b,
       '--tone-c': palette?.c
