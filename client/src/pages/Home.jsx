@@ -31,7 +31,7 @@ export default function Home() {
         <div className={styles.heroText}>
           <span>Премиальный парфюмерный бутик</span>
           <h1>Ароматы, которые остаются личной памятью</h1>
-          <p>{boutique.tagline}. Помогаем выбрать флакон или небольшой объем для знакомства с композицией. Доступны распив и разлив.</p>
+          <p>{boutique.tagline}. Помогаем выбрать флакон или небольшой объем для знакомства с композицией. Доступны как на распив так на разлив.</p>
           <div className={styles.cta}>
             <Link className="btn primary" to="/catalog">Смотреть каталог <ArrowRight size={18} /></Link>
             <Link className="btn" to="/catalog?family=fresh">Подобрать аромат <Sparkles size={18} /></Link>
@@ -90,10 +90,7 @@ export default function Home() {
 
       <section className="section">
         <SectionTitle kicker="Контакты" title="Адрес и связь" />
-        <div className={styles.split}>
-          <BoutiqueInfo />
-          <div className={styles.map}>Карта: {boutique.address}. Поиск на карте: {boutique.mapQuery}</div>
-        </div>
+        <BoutiqueInfo />
       </section>
     </>
   );

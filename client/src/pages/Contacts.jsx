@@ -23,7 +23,6 @@ export default function Contacts() {
         </div>
         <ContactForm />
       </div>
-      <div className={styles.map}>Интерактивная карта: {boutique.address}. Поиск на карте: {boutique.mapQuery}</div>
     </section>
   );
 }

@@ -152,10 +152,11 @@
   flex-direction: column;
   gap: 6px;
   padding: 76px 22px 22px;
-  background: rgba(255,252,247,.96);
+  background: #fffaf4;
   transform: translateX(105%);
   transition: transform .25s ease;
   box-shadow: -24px 0 50px rgba(65,55,42,.12);
+  border-left: 1px solid rgba(158, 128, 83, .16);
 }
 
 .backdrop {
@@ -163,7 +164,7 @@
   inset: 0;
   z-index: 49;
   border: 0;
-  background: rgba(44, 42, 40, .12);
+  background: rgba(44, 42, 40, .22);
 }
 
 .mobilePanel.open {
@@ -201,6 +202,8 @@
     padding: 78px 20px 24px;
     transform: translateX(100%);
     box-shadow: none;
+    border-left: 0;
+    background: #fffaf4;
   }
 
   .mobilePanel.open {
@@ -212,6 +215,6 @@
   }
 
   .backdrop {
-    background: rgba(44, 42, 40, .08);
+    background: rgba(44, 42, 40, .18);
   }
 }
