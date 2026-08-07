@@ -6,3 +6,32 @@
     linear-gradient(150deg, rgba(255,255,255,.72), rgba(255,250,243,.52));
   box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.75);
 }
+
+.gallery > div {
+  min-height: clamp(560px, 72vh, 820px);
+}
+
+.gallery img {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(12px, 2vw, 22px);
+  background:
+    radial-gradient(ellipse at 50% 62%, rgba(234,219,194,.28), transparent 45%),
+    linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,250,243,.46));
+}
+
+@media (max-width: 900px) {
+  .gallery > div {
+    min-height: clamp(520px, 78vh, 760px);
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery > div {
+    min-height: min(78vh, 620px);
+  }
+
+  .gallery img {
+    padding: 8px;
+  }
+}
