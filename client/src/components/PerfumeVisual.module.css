@@ -18,12 +18,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center 56%;
-  transform: scale(1.01);
-  transition: transform .35s ease, filter .35s ease;
-}
-
-.visual:hover .photo {
-  transform: scale(1.045);
 }
 
 .visual::before,
