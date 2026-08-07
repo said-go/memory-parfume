@@ -88,6 +88,10 @@ for (const width of widths) {
   await firstCard.click();
   await page.waitForLoadState('networkidle');
   await check(page.url().includes('/product/'), `Страница товара не открылась на ${width}px`);
+  const productScrollY = await page.evaluate(() => window.scrollY);
+  await check(productScrollY === 0, `Страница товара открылась не в начале экрана на ${width}px: scrollY=${productScrollY}`);
+  const productPhotoCount = await page.locator('[aria-label^="Фото "]').count();
+  await check(productPhotoCount === 0, `На странице товара остались дополнительные фото/миниатюры на ${width}px`);
 
   const initialPrice = await page.locator('text=/\\d+\\s?\\d* ₽/').first().textContent();
   const volumeButtons = page.locator('button', { hasText: '10 мл' });

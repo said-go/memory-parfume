@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import BackToTop from './components/BackToTop.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './pages/Home.jsx';
 import Catalog from './pages/Catalog.jsx';
 import Product from './pages/Product.jsx';
@@ -13,6 +14,7 @@ import NotFound from './pages/NotFound.jsx';
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main id="content" tabIndex="-1">
         <Routes>

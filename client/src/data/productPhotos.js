@@ -19,6 +19,6 @@ const photoFiles = [
 
 export function getProductPhotos(product) {
   const numericId = Number(product.id.replace(/\D/g, '')) || 1;
-  const start = (numericId - 1) % photoFiles.length;
-  return [0, 1, 2].map((offset) => `${import.meta.env.BASE_URL}perfumes/${photoFiles[(start + offset) % photoFiles.length]}`);
+  const index = (numericId - 1) % photoFiles.length;
+  return [`${import.meta.env.BASE_URL}perfumes/${photoFiles[index]}`];
 }
