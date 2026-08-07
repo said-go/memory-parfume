@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BadgeCheck, Gift, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { products, dictionaries } from '../data/products.js';
 import { boutique } from '../data/boutique.js';
-import { getProductPhotos } from '../data/productPhotos.js';
 import { setSeo } from '../utils.js';
 import SectionTitle from '../components/SectionTitle.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
-import PerfumeVisual from '../components/PerfumeVisual.jsx';
 import ScrollReveal from '../components/ScrollReveal.jsx';
 import BoutiqueInfo from '../components/BoutiqueInfo.jsx';
 import styles from './Pages.module.css';
@@ -36,9 +34,6 @@ export default function Home() {
             <Link className="btn primary" to="/catalog">Смотреть каталог <ArrowRight size={18} /></Link>
             <Link className="btn" to="/catalog?family=fresh">Подобрать аромат <Sparkles size={18} /></Link>
           </div>
-        </div>
-        <div className={styles.heroVisual}>
-          <PerfumeVisual palette={{ a: '#faf2e8', b: '#d8bd89', c: '#6a5c4b' }} imageSrc={getProductPhotos(products[2])[0]} label={`Флакон парфюма ${boutique.name}`} />
         </div>
       </section>
 
